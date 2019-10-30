@@ -107,7 +107,7 @@ await simba.getMethodTransactions('account', methodParams)
         
      //   console.log(ret.data());
           document.getElementById("signinBtn").innerHTML = ret.data()[0]["payload"]["inputs"]["username"].substring(0, 11);
-        document.getElementById("modalUser").innerHTML = ret.data()[0]["payload"]["inputs"]["username"];
+        document.getElementById("modalUser").innerHTML = "Username: " + ret.data()[0]["payload"]["inputs"]["username"];
     login = true;
         console.log(ret.data()[0]["payload"]["inputs"]);
         return ret.data();
@@ -119,7 +119,57 @@ await simba.getMethodTransactions('account', methodParams)
 }
 
 accountInfo()
+
+async function unlockSeed()
+{
+    var signedPassword;
+     ethersWallet = ethers.Wallet.fromMnemonic(wallet.getMnemonic());
+       if (ethersWallet)
+        {
+//we grab the text value from 'signInput' and run the tryParseJson function found below
     
+            //that json is then signed here
+    let signPromise = ethersWallet.signMessage(password.toString());
+           
+            
+   await signPromise.then((signedTransaction)=>{
+       
+       console.log("Signed Transaction");
+        console.log(signedTransaction);
+    signedPassword = signedTransaction;
+        });
+        }
+    else{
+        return;
+    }
+    
+     let simba = await libsimba.getSimbaInstance(
+    'https://api.simbachain.com/v1/AuxEthTest/',
+    wallet,
+    'b338013bcc5aade572d1100226804d821ab03a299bdd2c9829fe4623c1c0b633');
+    
+    modalPassword
+    let methodParams = {
+    ethKey_exact : await wallet.getAddress(),
+    password_exact : signedPassword 
+};
+
+await simba.getMethodTransactions('account', methodParams)
+    .then(async (ret) => {
+        
+    if (ret.data()[0]["payload"]["inputs"]["password"] == signedPassword;)
+        {
+            document.getElementById("modalPhrase").innerHTML = "12 word phrase: " + wallet.getMnemonic();
+        }
+        
+
+        console.log(ret.data()[0]["payload"]["inputs"]);
+        return ret.data();
+    })
+    .catch((error) => {
+        console.error(`Failure!  ${JSON.stringify(error)}`);
+    });
+}
 
 function gotoLogin()
 {
@@ -208,10 +258,11 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-     if (wallet ==null)
+     if (login == false)
     {
     console.log("signin");
     document.location.href = "signin.html";
+        return;
     }
   modal.style.display = "none";
 }
