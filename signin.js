@@ -89,7 +89,7 @@ async function RestoreAccount()
     wallet,
     'b338013bcc5aade572d1100226804d821ab03a299bdd2c9829fe4623c1c0b633');
     
-    modalPassword
+    
     let methodParams = {
     username_exact:document.getElementById("restoreUser").value,
     ethKey_exact : await ethersWallet.getAddress(),
