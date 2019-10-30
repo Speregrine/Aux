@@ -86,6 +86,10 @@ console.log(`Eth Address: ${address}`);
 async function accountInfo()
 {
       await GenWallet(); 
+    if (login == false)
+    {
+        return;
+    }
     let simba = await libsimba.getSimbaInstance(
     'https://api.simbachain.com/v1/AuxEthTest/',
     wallet,
@@ -113,16 +117,25 @@ await simba.getMethodTransactions('account', methodParams)
     });
    
 }
-accountInfo()
 
+accountInfo()
+    
 
 function gotoLogin()
 {
+   
     console.log("signin");
     document.location.href = "signin.html";
+    
 }
 
-
+function signout()
+{
+    
+    console.log("signin");
+    document.location.href = "signin.html";
+    
+}
 
 
 
@@ -195,6 +208,11 @@ btn.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
+     if (wallet ==null)
+    {
+    console.log("signin");
+    document.location.href = "signin.html";
+    }
   modal.style.display = "none";
 }
 
