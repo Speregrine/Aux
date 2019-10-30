@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    
+  <head>
+    <LINK href="css/style.css" rel="stylesheet" type="text/css">
+    <LINK href="css/buttons.css" rel="stylesheet" type="text/css">
+    <LINK href="css/fields.css" rel="stylesheet" type="text/css">  
+    <meta charset="UTF-8">
+    <title>Aux</title>
+         <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+  <script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+  <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  <body >
+    
+       
+  
+      <div class="body">
+      
+        
+        <div class="maincontent">
+            
+             <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p style="font-size: 1.5em">Account Settings</p>
+      <p id="modalUser">Username:</p>
+    <p id="modalPhrase">12 word phrase:</p>
+         <label class="field a-field a-field_a3 page__field">
+      <input id="createPass" class="field__input a-field__input" placeholder="e.g. aG00dP@ssw0rd!" type="password" required>
+      <span class="a-field__label-wrap">
+        <span class="a-field__label" id="modalPassword" >Password</span> 
+      </span>
+    </label>
+     <button class="btnSigninSmall">Unlock</button>
+    
+      <p id="createErrorText" style="color: red"></p>
+     
+        <button class="btnFilter" style="float: none;" onclick="CreateAccount()">Sign Out</button>
+  </div>
+
+</div>
+            
+            
+            <div class="mainbar">
+                
+                <button class="homebutton"></button> <label><input class="searchBar"></label> <button class="btnSearch">Search</button> <button id="signinBtn" class="btnSignin" >Login/Signup</button>
+                
+            </div>
+            
+            <div class="mainSideBar">
+                <button class="btnFilter">Trending</button>
+                <button class="btnFilter">Most Downloads</button>
+                <button class="btnFilter">New</button>
+            </div>
+            
+             <div id="root" class="mainSongBar">
+                
+            </div>
+           
+           
+          </div>
+       
+          </div>
+
+    <script src="/js/libsimba-js-0.5.2/dist/libsimba.js"></script>
+    <script src="js/ethers.js"></script>
+    <script type="text/babel" src="/js/main.js"></script>
+      
+      
+  </body>
+</html>
+    
+    

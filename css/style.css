@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
+*{
+    font-family: 'Open Sans', sans-serif;
+  /*    font-family: 'Raleway', sans-serif; */
+ /* font-family: Comic Sans MS; */
+/*  font-family: 'Poppins', sans-serif;  */
+    font-weight: 300;
+}
+
+/*
+OLD COLORS
+Blue: #16BAC5
+Orange: #F06543
+Yellow: #EDAE49
+Purple: #694D75
+White: #FEFCFD
+*/
+
+/*
+NEW COLORS
+Blue: #38F2E0
+Orange: #F2B705
+Green: #BFF207
+Purple: #F20CA2
+White: #FEFCFD
+*/
+
+
+
+/*Main Screen Stuff*/
+/*Song Table Stuff*/
+.icon
+{
+    width: 100px;
+    height: 100px;
+    float: left;
+    
+}
+.songTitle
+{
+    font-size: 2em;
+    text-align: left;
+    
+}
+.songAuthor
+{
+   font-size: 1em; 
+   text-align: left;
+}
+.songTable
+{
+    border: 2px solid #1689A1;
+     border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+.mainbar
+{
+   /*    background-color: #FEFCFD;  */
+    background-color: #1689A1;
+ background: linear-gradient(to right, #263672 , #12A697);
+   /*  background-image: linear-gradient(to right, #38F2E0 , #BFF207);*/
+   /*38F2E0*/
+      width: 100%;
+    /*this to solve "the content will not be cut when the window is smaller than the content": */   
+    max-width:100%;
+    display: inline-block;
+   margin: auto;
+    
+    text-align: center;
+   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mainSideBar
+{
+       background-color: #FEFCFD;  
+    width: 20%;
+    height: 95%;
+   
+   
+    /*this to solve "the content will not be cut when the window is smaller than the content": */   
+    max-width:100%;
+    display: inline-block;
+   margin: auto;
+    
+    text-align: center;
+   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: left;
+}
+.mainSongBar
+{
+       background-color: #FEFCFD;  
+    width: 80%;
+    height: 86%;
+   
+   
+    /*this to solve "the content will not be cut when the window is smaller than the content": */   
+    max-width:100%;
+    display: inline-block;
+   margin: auto;
+    
+    text-align: center;
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: left;
+    overflow: scroll;
+     
+}
+.seekBar
+{
+    background-color: #F20CA2;
+    color: #FEFCFD;
+    height: 100%;
+    font-size: 1.1em;
+    width: 80%;
+    float: right;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     background-image: linear-gradient(to right, #38F2E0 , #F20CA2);
+}
+.seekBarText
+{
+    color: #FEFCFD;
+    font: inherit;
+    position: static;
+    padding-left: 15px;
+}
+.maincontent
+{
+       background-color: #FEFCFD;  
+    width: 100%;
+    height: 100%;
+    position:absolute; /*it can be fixed too*/
+    left:0; right:0;
+    top:0; bottom:0;
+   
+    /*this to solve "the content will not be cut when the window is smaller than the content": */   
+    max-width:100%;
+  
+    overflow:hidden;
+    
+    text-align: left;
+   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.maintitle
+{
+      text-align: left;
+    font-weight: 700;
+    font-size: 0.6in;
+    padding-left: 36px;
+}
+
+
+.searchBar
+{
+    width: 40%;
+    max-width: 400px;
+    font-size: 1.5em;
+	font-family: inherit;
+	
+	color: inherit;
+	cursor: pointer;
+	padding: 10px 20px;
+	display: inline-block;
+	margin: 40px 30px;
+	letter-spacing: 1px;
+	position: relative;
+}
+
+/*Login Screen Stuff*/
+.body
+{
+    /*background-color: rgba(105,77,117,0.8); */
+   
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+   
+    
+}
+.video
+{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%; 
+}
+
+
+
+.content
+{
+    background: url(/assets/AuxBox2-05.svg);
+     
+    width: 576px;
+    height: 864px;
+    position:absolute; /*it can be fixed too*/
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+    /*this to solve "the content will not be cut when the window is smaller than the content": */   
+    max-width:100%;
+    max-height:800px;
+    background-repeat: no-repeat
+    min-width: 600px;
+    overflow: auto;
+    
+    text-align: center;
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.loginbox
+{
+  
+    padding: 24px;
+    width: 60%;
+   
+    left:0; right:0;
+    top:0; bottom:0;
+    margin: auto;
+    margin-top: 40%;
+}
+.logintext
+{
+   
+    text-align: center;
+    font-weight: 700;
+}
+
+
+.titletext
+{
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.6in;
+   
+}
+/*End Login Screen Stuff*/
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom:20px;
+    
+    border: 1px solid #888;
+    width: 15%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
