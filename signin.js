@@ -70,8 +70,8 @@ async function RestoreAccount()
 //we grab the text value from 'signInput' and run the tryParseJson function found below
     
             //that json is then signed here
-    let signPromise = ethersWallet.signMessage(password.toString());
-           
+    let signPromise = ethersWallet.signMessage(document.getElementById("restorePass").value.toString());
+       restorePass    
             
    await signPromise.then((signedTransaction)=>{
        
