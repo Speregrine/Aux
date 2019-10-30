@@ -106,7 +106,7 @@ await simba.getMethodTransactions('account', methodParams)
     .then(async (ret) => {
         
      //   console.log(ret.data());
-          document.getElementById("signinBtn").innerHTML = ret.data()[0]["payload"]["inputs"]["username"].substring(0, 11);
+          document.getElementById("signinBtn").innerHTML = "Settings";
         document.getElementById("modalUser").innerHTML = "Username: " + ret.data()[0]["payload"]["inputs"]["username"];
     login = true;
         console.log(ret.data()[0]["payload"]["inputs"]);
@@ -123,7 +123,7 @@ accountInfo()
 async function unlockSeed()
 {
     var signedPassword;
-     ethersWallet = ethers.Wallet.fromMnemonic(wallet.getMnemonic());
+    let ethersWallet = ethers.Wallet.fromMnemonic(wallet.getMnemonic());
        if (ethersWallet)
         {
 //we grab the text value from 'signInput' and run the tryParseJson function found below

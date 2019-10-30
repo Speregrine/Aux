@@ -63,6 +63,54 @@ console.log(`Eth Address: ${address}`);
 async function RestoreAccount()
 {
     
+    var signedPassword;
+    let ethersWallet = ethers.Wallet.fromMnemonic(document.getElementById("restorePhrase").value);
+       if (ethersWallet)
+        {
+//we grab the text value from 'signInput' and run the tryParseJson function found below
+    
+            //that json is then signed here
+    let signPromise = ethersWallet.signMessage(password.toString());
+           
+            
+   await signPromise.then((signedTransaction)=>{
+       
+       console.log("Signed Transaction");
+        console.log(signedTransaction);
+    signedPassword = signedTransaction;
+        });
+        }
+    else{
+        return;
+    }
+    
+     let simba = await libsimba.getSimbaInstance(
+    'https://api.simbachain.com/v1/AuxEthTest/',
+    wallet,
+    'b338013bcc5aade572d1100226804d821ab03a299bdd2c9829fe4623c1c0b633');
+    
+    modalPassword
+    let methodParams = {
+    username_exact:document.getElementById("restoreUser").value,
+    ethKey_exact : await ethersWallet.getAddress(),
+    password_exact : signedPassword 
+};
+
+await simba.getMethodTransactions('account', methodParams)
+    .then(async (ret) => {
+        
+    if (ret.data()[0]["payload"]["inputs"]["password"] == signedPassword)
+        {
+           console.log("login good");
+        }
+        
+         console.log(ret.data()[0]["payload"]["inputs"]);
+       
+        return ret.data();
+    })
+    .catch((error) => {
+        console.error(`Failure!  ${JSON.stringify(error)}`);
+    });
 }
 
 
