@@ -157,7 +157,7 @@ async function unlockSeed()
 await simba.getMethodTransactions('account', methodParams)
     .then(async (ret) => {
         
-    if (ret.data()[0]["payload"]["inputs"]["password"] == signedPassword;)
+    if (ret.data()[0]["payload"]["inputs"]["password"] == signedPassword)
         {
             document.getElementById("modalPhrase").innerHTML = "12 word phrase: " + wallet.getMnemonic();
         }
