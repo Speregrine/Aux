@@ -102,6 +102,32 @@ await simba.getMethodTransactions('account', methodParams)
     if (ret.data()[0]["payload"]["inputs"]["password"] == signedPassword)
         {
            console.log("login good");
+            
+            console.log('Initialising Wallet');
+ wallet = new libsimba.LocalWallet(
+    () => {
+        //Ask the user for permission before signing
+        console.log('Ask the user for permission before signing');
+        return Promise.resolve(window.confirm("Do you want to sign this transaction?"))
+    }
+);
+//Check if there's an existing local wallet
+
+    login = false;
+    //There is no local wallet, let
+    console.log("Not Logged in");
+
+    //Use this to prevent progress output spam
+  
+    let lastProgress = 0;
+
+       await wallet.generateWalletFromMnemonic(
+         document.getElementById("restorePhrase").value,
+         'test1234',
+         (progress)=>{
+             console.log(`Encrypting Wallet ${progress*100}`);
+        });
+    document.location.href = "index.html";    
         }
         
          console.log(ret.data()[0]["payload"]["inputs"]);
