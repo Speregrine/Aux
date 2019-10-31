@@ -186,7 +186,7 @@ function signout()
     
 }
 
-function uploadSong()
+async function uploadSong()
 {
     //Initialize Simba
       let simba = await libsimba.getSimbaInstance(
