@@ -8,7 +8,11 @@
 /*  font-family: 'Poppins', sans-serif;  */
     font-weight: 300;
 }
-
+br {
+            display: block; /* makes it have a width */
+            content: ""; /* clears default height */
+            margin-top: 0; /* change this to whatever height you want it */
+}
 /*
 OLD COLORS
 Blue: #16BAC5
@@ -67,8 +71,8 @@ White: #FEFCFD
     /*this to solve "the content will not be cut when the window is smaller than the content": */   
     max-width:100%;
     display: inline-block;
-   margin: auto;
-    
+   
+    line-height: 1px;
     text-align: center;
    
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -196,7 +200,7 @@ White: #FEFCFD
 
 .content
 {
-    background: url(AuxBox2-05.svg);
+    background: url(/assets/AuxBox2-05.svg);
      
     width: 576px;
     height: 864px;

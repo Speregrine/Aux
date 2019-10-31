@@ -106,7 +106,7 @@ await simba.getMethodTransactions('account', methodParams)
     .then(async (ret) => {
         
      //   console.log(ret.data());
-          document.getElementById("signinBtn").innerHTML = "Settings";
+          document.getElementById("signinBtn").innerHTML = "Account";
         document.getElementById("modalUser").innerHTML = "Username: " + ret.data()[0]["payload"]["inputs"]["username"];
     login = true;
         console.log(ret.data()[0]["payload"]["inputs"]);

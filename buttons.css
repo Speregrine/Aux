@@ -34,7 +34,37 @@
 }
 
 
-
+.btnUpload {
+    border: none;
+	font-family: inherit;
+	font-size: inherit;
+    
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 0 0px;
+	display: inline-block;
+	margin: 18px 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+    float: right;
+    
+    color: #FEFCFD;
+}
+.btnUpload:hover
+{
+    color: gainsboro;
+}
+.btnUpload:active
+{
+    color: gray;
+}
 
 
 
@@ -100,7 +130,7 @@
 	cursor: pointer;
 	padding: 5px 5px;
 	display: inline-block;
-	margin: 45px 30px;
+	margin: 10px 20px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 700;
