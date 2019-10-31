@@ -93,7 +93,7 @@ async function accountInfo()
     let simba = await libsimba.getSimbaInstance(
     'https://api.simbachain.com/v1/AuxEthTest/',
     wallet,
-    'b338013bcc5aade572d1100226804d821ab03a299bdd2c9829fe4623c1c0b633');
+    '73b76aa3969ffaa463000e6618b4c2d3871e7e764f392df0461c7d0c878574ab');
     
    //Get Transactions
 console.log('Get Transactions');
@@ -146,9 +146,8 @@ async function unlockSeed()
      let simba = await libsimba.getSimbaInstance(
     'https://api.simbachain.com/v1/AuxEthTest/',
     wallet,
-    'b338013bcc5aade572d1100226804d821ab03a299bdd2c9829fe4623c1c0b633');
+    '73b76aa3969ffaa463000e6618b4c2d3871e7e764f392df0461c7d0c878574ab');
     
-    modalPassword
     let methodParams = {
     ethKey_exact : await wallet.getAddress(),
     password_exact : signedPassword 
@@ -187,7 +186,22 @@ function signout()
     
 }
 
-
+function uploadSong()
+{
+    //Initialize Simba
+      let simba = await libsimba.getSimbaInstance(
+    'https://api.simbachain.com/v1/AuxEthTest/',
+    wallet,
+    '73b76aa3969ffaa463000e6618b4c2d3871e7e764f392df0461c7d0c878574ab');
+    //Upload Song
+        //generate uniqueID
+        var uniqueID = userName.substr(0,2) + Math.round((date.getMilliseconds() + Math.random()) * 1000000000000).toString();
+    console.log(uniqueID);
+    //Upload Thumbnail
+    
+    
+    
+}
 
 
 const names = ["Song1", "Song2"];
@@ -224,6 +238,7 @@ const tableItems =  [<tr class="songTable">
             }
       } 
     }
+                    
 // Create a function to wrap up your component
 function App(){
   return(
@@ -244,13 +259,20 @@ function App(){
 //modal view stuff
 // Get the modal
 var modal = document.getElementById("myModal");
-
+var uploadModal = document.getElementById("uploadModal");
 // Get the button that opens the modal
 var btn = document.getElementById("signinBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+var uploadbtn = document.getElementById("uploadbtn");                
+                
+uploadbtn.onclick = function() {
+  modal.style.display = "none";  
+  uploadModal.style.display = "block";
+}               
+                
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
       if (login == false)
@@ -266,11 +288,13 @@ btn.onclick = function() {
 span.onclick = function() {
    
   modal.style.display = "none";
+     uploadModal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+       uploadModal.style.display = "none";
   }
 }

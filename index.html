@@ -26,8 +26,9 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
+      <br>
     <p style="font-size: 1.5em">Account Settings</p>
-      <button class="btnFilter" style="float: none;">Upload Song</button>
+      <button id="uploadbtn" class="btnFilter" style="float: none;">Upload Song</button>
       <p id="modalUser">Username:</p>
     <p id="modalPhrase">12 word phrase:</p>
          <label class="field a-field a-field_a3 page__field">
@@ -41,6 +42,51 @@
       <p id="createErrorText" style="color: red"></p>
      
         <button class="btnFilter" style="float: none;" onclick="signout()">Sign Out</button>
+  </div>
+
+</div>
+            
+            <div id="uploadModal" class="modal">
+
+  <!--Upload Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p style="font-size: 1.5em">Upload Song</p>
+         <label class="field a-field a-field_a3 page__field">
+      <input id="createUser" class="field__input a-field__input" placeholder="e.g. mysongname" required>
+      <span class="a-field__label-wrap">
+        <span class="a-field__label">Title</span>
+      </span>
+    </label>
+      <br>
+      <br>
+    <label class="field a-field a-field_a3 page__field">
+      <input id="createUser" class="field__input a-field__input" placeholder="e.g. therealjohnsmith" required>
+      <span class="a-field__label-wrap">
+        <span class="a-field__label">Author</span>
+      </span>
+    </label>
+      <br>
+      <br>
+       <label class="field a-field a-field_a3 page__field">
+      <input id="createUser" class="field__input a-field__input" placeholder="e.g. Smooth Jazz" required>
+      <span class="a-field__label-wrap">
+        <span class="a-field__label">Genre</span>
+      </span>
+    </label>
+      <br>
+      <br>
+       <label class="field a-field a-field_a3 page__field">
+      <input id="createUser" class="field__input a-field__input" placeholder="17" required>
+      <span class="a-field__label-wrap">
+        <span class="a-field__label">Price(in Lumen)</span>
+      </span>
+    </label>
+      <br>
+      <br>
+      <p id="createErrorText" style="color: red"></p>
+     
+        <button class="btnFilter" style="float: none;" onclick="uploadSong()">Upload Song</button>
   </div>
 
 </div>

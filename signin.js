@@ -87,7 +87,7 @@ async function RestoreAccount()
      let simba = await libsimba.getSimbaInstance(
     'https://api.simbachain.com/v1/AuxEthTest/',
     wallet,
-    'b338013bcc5aade572d1100226804d821ab03a299bdd2c9829fe4623c1c0b633');
+    '73b76aa3969ffaa463000e6618b4c2d3871e7e764f392df0461c7d0c878574ab');
     
     
     let methodParams = {
@@ -220,7 +220,7 @@ async function CreateAccount()
 let simba = await libsimba.getSimbaInstance(
     'https://api.simbachain.com/v1/AuxEthTest/',
     wallet,
-    'b338013bcc5aade572d1100226804d821ab03a299bdd2c9829fe4623c1c0b633');
+    '73b76aa3969ffaa463000e6618b4c2d3871e7e764f392df0461c7d0c878574ab');
     
     let balance = await simba.getBalance();
     console.log(balance.amount);
