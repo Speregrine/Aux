@@ -211,13 +211,14 @@ async function uploadSong()
     wallet,
     '73b76aa3969ffaa463000e6618b4c2d3871e7e764f392df0461c7d0c878574ab');
     //Upload Song
-        //generate uniqueID
-        var uniqueID = userName.substr(0,2) + Math.round((date.getMilliseconds() + Math.random()) * 1000000000000).toString();
-    console.log(uniqueID);
-        //get timestamp
+     //get timestamp
         var dateRaw = new Date();
         var date = dateRaw.toString();
     console.log(date);
+        //generate uniqueID
+        var uniqueID = userName.substr(0,2) + Math.round((dateRaw.getMilliseconds() + Math.random()) * 1000000000000).toString();
+    console.log(uniqueID);
+       
     //Upload Thumbnail
     
     
