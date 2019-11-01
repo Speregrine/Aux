@@ -302,9 +302,9 @@ async function getTableItems()
             await simba.getMethodTransactions('Song')
                 .then(async (ret) => {
         
-        //   console.log(ret.data());
-         songinfo = ret.data();
-        console.log(songinfo);
+          console.log(ret.data());
+       //  songinfo = ret.data();
+      //  console.log(songinfo);
         return ret.data();
     })
     .catch((error) => {
