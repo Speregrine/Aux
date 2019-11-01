@@ -228,7 +228,7 @@ let methodParams = {
     genre: genre,
     price: price,
     author: author,
-    uniqueid: uniqueid,
+    uniqueid: uniqueID,
     timestamp: date
 };
 
@@ -269,7 +269,7 @@ await simba.callMethod('song', methodParams, file)
   //  console.log(thumbnail);
    let thumbParams = {
     assetId: "0x0",
-    uniqueid: uniqueid
+    uniqueid: uniqueID
 };
 
 await simba.callMethod('thumbnail', thumbParams, thumbnail)
