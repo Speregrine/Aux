@@ -329,7 +329,7 @@ async function getTableItems()
         console.error(`Failure!  ${JSON.stringify(error)}`);
     });       
             var i = 0
-         for (song in songinfo;)
+         for (song in songinfo)
              {
                  tableItems[i] = <tr class="songTable"><th><span class="songTitle"><img class="icon" src="8684786ae27fbccae36e9bbc264fb6ec.jpg"/>{songinfo[i]["payload"]["inputs"]["name"]}</span><br/><span class="songAuthor">{songinfo[i]["payload"]["inputs"]["author"]} &nbsp;&nbsp;&nbsp; {songinfo[i]["payload"]["inputs"]["price"]} Lumen</span><button class="btnBuy">BUY</button></th></tr>
                  i +=1;
