@@ -236,7 +236,7 @@ await simba.callMethod('Song', methodParams, file)
   //  console.log(thumbnail);
    let thumbParams = {
     assetId: "0x0",
-    uniqueid: uniqueID
+    uniqueId: uniqueID
 };
 
 await simba.callMethod('Thumbnail', thumbParams, thumbnail)
