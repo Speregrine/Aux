@@ -306,6 +306,7 @@ async function getTableItems()
                 .then(async (ret) => {
         
           console.log(ret.data());
+                console.log(ret.length())
        //  songinfo = ret.data();
       //  console.log(songinfo);
         return ret.data();
