@@ -220,10 +220,91 @@ async function uploadSong()
         var uniqueID = userName.substr(0,2) + Math.round((dateRaw.getMilliseconds() + Math.random()) * 1000000000000).toString();
     console.log(uniqueID);
        //define parameters
-    
+        let address = await wallet.getAddress();
+let methodParams = {
+    assetId: "0x0",
+    name: title,
+    album: "null",
+    genre: genre,
+    price: price,
+    author: author,
+    uniqueid: uniqueid,
+    timestamp: date
+};
+
+await simba.callMethod('song', methodParams, file)
+    .then(async (ret) => {
+        console.log(`Successful!  ${JSON.stringify(ret)}`);
+        //The request and signing were successful, now we wait for the API to
+        // tell us if the txn was successful or not.
+        const {
+            future,
+            cancel
+        } = simba.waitForSuccessOrError(ret);
+        //`future` is a JS Promise that will resolve when we know the status
+        //`cancel` is a function, you can call it to cancel the above request if needed
+        return await future
+            .then(txn => {
+                //txn will hold the txn details
+                //txn.status will hold the status
+               document.body.style.cursor='auto';  
+                alert("Song Uploaded");
+                 
+                console.log(`Status: ${txn.status}`);
+                if (txn.status === 'DEPLOYED') {
+                    console.log(`Hash: ${txn.transaction_hash}`);
+                    
+                }
+            })
+            .catch((error) => {
+                alert("Error Uploading Song");
+                console.error(`Failure!  ${JSON.stringify(error)}`);
+            })
+    })
+    .catch((error) => {
+     alert("Error Creating Account");
+        console.error(`Failure!  ${JSON.stringify(error)}`);
+    });
     //Upload Thumbnail
-    console.log(thumbnail);
-    
+  //  console.log(thumbnail);
+   let thumbParams = {
+    assetId: "0x0",
+    uniqueid: uniqueid
+};
+
+await simba.callMethod('thumbnail', thumbParams, thumbnail)
+    .then(async (ret) => {
+        console.log(`Successful!  ${JSON.stringify(ret)}`);
+        //The request and signing were successful, now we wait for the API to
+        // tell us if the txn was successful or not.
+        const {
+            future,
+            cancel
+        } = simba.waitForSuccessOrError(ret);
+        //`future` is a JS Promise that will resolve when we know the status
+        //`cancel` is a function, you can call it to cancel the above request if needed
+        return await future
+            .then(txn => {
+                //txn will hold the txn details
+                //txn.status will hold the status
+               document.body.style.cursor='auto';  
+                alert("Thumbnail Uploaded");
+               
+                console.log(`Status: ${txn.status}`);
+                if (txn.status === 'DEPLOYED') {
+                    console.log(`Hash: ${txn.transaction_hash}`);
+                    
+                }
+            })
+            .catch((error) => {
+                alert("Error Uploading Thumbnail");
+                console.error(`Failure!  ${JSON.stringify(error)}`);
+            })
+    })
+    .catch((error) => {
+     alert("Error Creating Account");
+        console.error(`Failure!  ${JSON.stringify(error)}`);
+    }); 
     
     
 }

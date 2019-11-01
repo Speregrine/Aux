@@ -33,26 +33,6 @@ console.log('Initialising Wallet');
             }
         });
     
-    /* un comment this for generation
-       await wallet.generateWalletFromMnemonic(
-         'jeans absorb curve mimic task apology green ability cake eyebrow report inner',
-         'test1234',
-         (progress)=>{
-             console.log(`Encrypting Wallet ${progress*100}`);
-        });
-    */
-    
-    
-    // We can also generate a wallet from a private key, or from a mnemonic
-    /* await wallet.generateWalletFromPrivateKey(
-         '0x5254aae6a8d34a95a5aff7350d11f5bf46db6deca2182545fbd7267ece2cb486',
-         'test1234',
-         (progress)=>{
-             console.log(`Encrypting Wallet ${progress*100}`);
-        });*/
- 
-    
-
 //Print out the wallet address, you don't need to do this, but useful to see
 let address = await wallet.getAddress();
 console.log(`Eth Address: ${address}`);
