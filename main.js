@@ -299,8 +299,10 @@ async function getTableItems()
     'https://api.simbachain.com/v1/AuxEthTest/',
     wallet,
     '73b76aa3969ffaa463000e6618b4c2d3871e7e764f392df0461c7d0c878574ab');
+    let methodParams = {
    
-            await simba.getMethodTransactions('Song')
+};
+            await simba.getMethodTransactions('Song', methodParams)
                 .then(async (ret) => {
         
           console.log(ret.data());
