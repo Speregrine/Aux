@@ -7,7 +7,8 @@
 //global variables
 var wallet;
 var login = false;
-
+var userName;
+var globalFiles;
 //Initialise Wallet
 async function GenWallet()
 {
@@ -108,6 +109,7 @@ await simba.getMethodTransactions('account', methodParams)
      //   console.log(ret.data());
           document.getElementById("signinBtn").innerHTML = "Account";
         document.getElementById("modalUser").innerHTML = "Username: " + ret.data()[0]["payload"]["inputs"]["username"];
+    userName = ret.data()[0]["payload"]["inputs"]["username"];
     login = true;
         console.log(ret.data()[0]["payload"]["inputs"]);
         return ret.data();
@@ -188,6 +190,21 @@ function signout()
 
 async function uploadSong()
 {
+    //Get parameters from input
+    let title =  document.getElementById('uploadTitle').value;
+    let author =  document.getElementById('uploadAuthor').value;
+    let genre =  document.getElementById('uploadGenre').value;
+    let price =  document.getElementById('uploadPrice').value;
+    let file = globalFiles;
+    
+    
+    console.log(title);
+    console.log(author);
+    console.log(genre);
+    console.log(price);
+    console.log(file);
+    
+    
     //Initialize Simba
       let simba = await libsimba.getSimbaInstance(
     'https://api.simbachain.com/v1/AuxEthTest/',
@@ -197,6 +214,10 @@ async function uploadSong()
         //generate uniqueID
         var uniqueID = userName.substr(0,2) + Math.round((date.getMilliseconds() + Math.random()) * 1000000000000).toString();
     console.log(uniqueID);
+        //get timestamp
+        var dateRaw = new Date();
+        var date = dateRaw.toString();
+    console.log(date);
     //Upload Thumbnail
     
     
@@ -255,6 +276,27 @@ function App(){
       rootElement
     )
 
+                
+                
+ function GetFile()
+{
+       var files = event.target.files;
+    globalFiles = files[0];
+   var filename = files[0].name;
+   var extension = files[0].type;
+       console.log(extension);
+    console.log(filename);
+    if (extension != "audio/mp3")
+        {
+            alert("Please only upload mp3 files");
+            document.getElementById("myFile").setAttribute("type","text");
+            document.getElementById("myFile").setAttribute("type","file");
+        }
+    
+}               
+                
+                
+                
 
 //modal view stuff
 // Get the modal
