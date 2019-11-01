@@ -289,7 +289,7 @@ var tableItems;  /*[<tr class="songTable">
 
 var count;
 var songinfo;
-var songthumbnail;
+var songthumbnaildata;
 async function getTableItems()
 {
     if (login)
@@ -315,7 +315,28 @@ async function getTableItems()
     .catch((error) => {
         console.error(`Failure!  ${JSON.stringify(error)}`);
     });
-        }
+            
+     await simba.getMethodTransactions('Thumbnail', methodParams)
+                .then(async (ret) => {
+        
+          console.log(ret.data());
+                console.log(ret.data().length);
+            songthumbnaildata = ret.data() 
+      //  console.log(songinfo);
+        return ret.data();
+    })
+    .catch((error) => {
+        console.error(`Failure!  ${JSON.stringify(error)}`);
+    });       
+            var i = 0
+         for (song in songinfo;)
+             {
+                 tableItems[i] = <tr class="songTable"><th><span class="songTitle"><img class="icon" src="8684786ae27fbccae36e9bbc264fb6ec.jpg"/>{songinfo[i]["payload"]["inputs"]["name"]}</span><br/><span class="songAuthor">{songinfo[i]["payload"]["inputs"]["author"]} &nbsp;&nbsp;&nbsp; {songinfo[i]["payload"]["inputs"]["price"]} Lumen</span><button class="btnBuy">BUY</button></th></tr>
+                 i +=1;
+             }
+            
+            
+        }   
 }
 
 // Obtain the root 
