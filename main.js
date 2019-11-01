@@ -281,7 +281,7 @@ await simba.callMethod('Thumbnail', thumbParams, thumbnail)
 
 
 
-var tableItems;  /*[<tr class="songTable">
+var tableItems[];  /*[<tr class="songTable">
                      <th><span class="songTitle"><img class="icon" src="8684786ae27fbccae36e9bbc264fb6ec.jpg"/>{names[0]}</span><br/><span class="songAuthor">{authors[0]} &nbsp;&nbsp;&nbsp; {prices[0]} Lumen</span><button class="btnBuy">BUY</button></th>
                     </tr>,<tr class="songTable">
                      <th><span class="songTitle"><img class="icon" src="8684786ae27fbccae36e9bbc264fb6ec.jpg"/>{names[1]}</span><br/><span class="songAuthor">{authors[1]} &nbsp;&nbsp;&nbsp; {prices[1]} Lumen</span><button class="btnBuy">BUY</button></th>
