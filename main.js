@@ -294,6 +294,7 @@ async function getTableItems()
 {
     if (login)
         {
+            console.log(wallet);
                let simba = await libsimba.getSimbaInstance(
     'https://api.simbachain.com/v1/AuxEthTest/',
     wallet,
