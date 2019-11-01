@@ -26,7 +26,7 @@ if (wallet.walletExists()) {
     //There is a local wallet, unlock it
     console.log("Unlocking Wallet");
     login = true;
-    getTableItems();
+ 
     //Use this to prevent progress output spam
     let lastProgress = 0;
 
@@ -60,6 +60,7 @@ async function accountInfo()
     {
         return;
     }
+    getTableItems()
     let simba = await libsimba.getSimbaInstance(
     'https://api.simbachain.com/v1/AuxEthTest/',
     wallet,
