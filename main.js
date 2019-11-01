@@ -336,7 +336,7 @@ async function getTableItems()
                  i +=1;
              }
             
-            SongList.forceUpdate();
+            SongList.updateList()
         }   
 }
 
@@ -344,6 +344,10 @@ async function getTableItems()
     const rootElement = document.getElementById('root')
 // Create a ES6 class component    
     class SongList extends React.Component { 
+    updateList()
+        {
+            this.forceUpdate();
+        }
 // Use the render function to return JSX component      
     render() { 
         if (login)
