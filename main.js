@@ -9,6 +9,7 @@ var wallet;
 var login = false;
 var userName;
 var globalFiles;
+var thumbnail;
 //Initialise Wallet
 async function GenWallet()
 {
@@ -218,8 +219,10 @@ async function uploadSong()
         //generate uniqueID
         var uniqueID = userName.substr(0,2) + Math.round((dateRaw.getMilliseconds() + Math.random()) * 1000000000000).toString();
     console.log(uniqueID);
-       
+       //define parameters
+    
     //Upload Thumbnail
+    console.log(thumbnail);
     
     
     
@@ -295,7 +298,18 @@ function App(){
         }
     
 }               
-                
+                  
+ function GetThumbnail()
+{
+       var files = event.target.files;
+    thumbnail = files[0];
+   var filename = files[0].name;
+   var extension = files[0].type;
+       console.log(extension);
+    console.log(filename);
+   
+    
+}               
                 
                 
 
