@@ -336,7 +336,10 @@ async function getTableItems()
                  i +=1;
              }
             
-            SongList.updateList()
+            ReactDOM.render(
+      <App />,
+      rootElement
+    )
         }   
 }
 
