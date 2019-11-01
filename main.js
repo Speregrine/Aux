@@ -335,7 +335,7 @@ async function getTableItems()
                  i +=1;
              }
             
-            
+            SongList.forceUpdate();
         }   
 }
 
