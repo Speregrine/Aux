@@ -26,6 +26,7 @@ if (wallet.walletExists()) {
     //There is a local wallet, unlock it
     console.log("Unlocking Wallet");
     login = true;
+    getTableItems();
     //Use this to prevent progress output spam
     let lastProgress = 0;
 
@@ -277,14 +278,40 @@ await simba.callMethod('Thumbnail', thumbParams, thumbnail)
 }
 
 
-const names = ["Song1", "Song2"];
-const authors = ["Author Person", "Another Author"];
-const prices = ["16.5", "17"];
-const tableItems =  [<tr class="songTable">
+
+
+var tableItems;  /*[<tr class="songTable">
                      <th><span class="songTitle"><img class="icon" src="8684786ae27fbccae36e9bbc264fb6ec.jpg"/>{names[0]}</span><br/><span class="songAuthor">{authors[0]} &nbsp;&nbsp;&nbsp; {prices[0]} Lumen</span><button class="btnBuy">BUY</button></th>
                     </tr>,<tr class="songTable">
                      <th><span class="songTitle"><img class="icon" src="8684786ae27fbccae36e9bbc264fb6ec.jpg"/>{names[1]}</span><br/><span class="songAuthor">{authors[1]} &nbsp;&nbsp;&nbsp; {prices[1]} Lumen</span><button class="btnBuy">BUY</button></th>
-                    </tr> ]  
+                    </tr> ]  */
+
+var count;
+var songinfo;
+var songthumbnail;
+async function getTableItems()
+{
+    if (login)
+        {
+               let simba = await libsimba.getSimbaInstance(
+    'https://api.simbachain.com/v1/AuxEthTest/',
+    wallet,
+    '73b76aa3969ffaa463000e6618b4c2d3871e7e764f392df0461c7d0c878574ab');
+    
+            await simba.getMethodTransactions('account')
+                .then(async (ret) => {
+        
+        //   console.log(ret.data());
+         songinfo = ret.data();
+        console.log(songinfo);
+        return ret.data();
+    })
+    .catch((error) => {
+        console.error(`Failure!  ${JSON.stringify(error)}`);
+    });
+        }
+}
+
 // Obtain the root 
     const rootElement = document.getElementById('root')
 // Create a ES6 class component    
@@ -382,6 +409,7 @@ uploadbtn.onclick = function() {
 btn.onclick = function() {
       if (login == false)
     {
+        
     console.log("signin");
     document.location.href = "signin.html";
         return;

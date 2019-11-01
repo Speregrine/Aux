@@ -16,7 +16,7 @@
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
-    float: right;
+   /* float: right;*/
     color: #4D3B8C;
       border: 2px solid #4D3B8C;
 }
