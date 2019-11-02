@@ -321,7 +321,7 @@ async function getTableItems()
         
           console.log(ret.data());
                 console.log(ret.data().length);
-            songthumbnaildata = ret.data() 
+            songthumbnaildata = ret.data();
       //  console.log(songinfo);
         return ret.data();
     })
@@ -339,8 +339,8 @@ async function getTableItems()
             i = 0;
          for (thumbdata in songthumbnaildata)
          {
-             console.log(thumbdata);
-            var transactionId = thumbdata["id"];
+             console.log(songthumbnaildata[i]);
+            var transactionId = songthumbnaildata[i]["id"];
                                 await simba.getFileFromBundleForTransaction(transactionId, 0, false)
     .then(async (blob) => {
         //This returns a Blob object. In Node
