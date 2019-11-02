@@ -339,6 +339,7 @@ async function getTableItems()
             i = 0;
          for (thumb in songthumbnaildata)
          {
+             console.log(thumb);
             var transactionId = thumb["id"];
                                 await simba.getFileFromBundleForTransaction(transactionId, 0, false)
     .then(async (blob) => {
