@@ -337,6 +337,7 @@ async function getTableItems()
              }
             var thumbdata;
             i = 0;
+           /* 
          for (thumbdata in songthumbnaildata)
          {
              console.log(songthumbnaildata[i]);
@@ -360,7 +361,7 @@ async function getTableItems()
     });
              i +=1
          }
-         
+         */
             ReactDOM.render(
       <App />,
       rootElement
