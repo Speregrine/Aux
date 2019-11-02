@@ -335,12 +335,12 @@ async function getTableItems()
                  tableItems[i] = <tr class="songTable"><th><span class="songTitle"><img class="icon" src="8684786ae27fbccae36e9bbc264fb6ec.jpg"/>{songinfo[i]["payload"]["inputs"]["name"]}</span><br/><span class="songAuthor">{songinfo[i]["payload"]["inputs"]["author"]} &nbsp;&nbsp;&nbsp; {songinfo[i]["payload"]["inputs"]["price"]} Lumen</span><button class="btnBuy">BUY</button></th></tr>
                  i +=1;
              }
-            var thumb;
+            var thumbdata;
             i = 0;
-         for (thumb in songthumbnaildata)
+         for (thumbdata in songthumbnaildata)
          {
-             console.log(thumb);
-            var transactionId = thumb["id"];
+             console.log(thumbdata);
+            var transactionId = thumbdata["id"];
                                 await simba.getFileFromBundleForTransaction(transactionId, 0, false)
     .then(async (blob) => {
         //This returns a Blob object. In Node
